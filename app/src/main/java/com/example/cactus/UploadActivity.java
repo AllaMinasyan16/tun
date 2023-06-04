@@ -78,12 +78,6 @@ public class UploadActivity extends AppCompatActivity {
 
     public void saveData(){
 
-        if (uri != null) {
-            String lastPathSegment = uri.getLastPathSegment();
-            // Дальнейшая обработка lastPathSegment
-        } else {
-            // Обработка случая, когда uri равно null
-        }
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Images")
                 .child(uri.getLastPathSegment());
 
@@ -99,6 +93,12 @@ public class UploadActivity extends AppCompatActivity {
                 while (!uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
                 imageURL = urlImage.toString();
+                String title = uploadTopic.getText().toString();
+                String desc = uploadDesc.getText().toString();
+                String lang = uploadLang.getText().toString();
+                DataClass dataClass = new DataClass(title, desc, lang, imageURL);
+                dataClass.setDataImage(imageURL); // Установите ссылку на фотографию в объект DataClass
+                uploadData(dataClass); // Передайте объект DataClass в метод uploadData()
                 uploadData();
                 dialog.dismiss();
             }
@@ -109,7 +109,29 @@ public class UploadActivity extends AppCompatActivity {
             }
         });
     }
-    public void uploadData(){
+
+    public void uploadData(DataClass data) {
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+        FirebaseDatabase.getInstance().getReference("Android Tutorials").child(currentDate)
+                .setValue(data)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(UploadActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UploadActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+   public void uploadData(){
         String title = uploadTopic.getText().toString();
         String desc = uploadDesc.getText().toString();
         String lang = uploadLang.getText().toString();

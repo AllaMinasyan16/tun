@@ -6,6 +6,10 @@ public class DataClass {
     private String dataLang;
     private String dataImage;
     private String key;
+
+    public void setDataImage(String dataImage) {
+        this.dataImage = dataImage;
+    }
     public String getKey() {
         return key;
     }
