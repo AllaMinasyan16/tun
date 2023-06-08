@@ -28,5 +28,9 @@
     <string name="ՄՈՒՏՔ_login">ՄՈՒՏՔ</string>
     <string name="Ունեք_login">Ունե՞ք ստեղծված գրանցում</string>
     <string name="Արդեն_login">Արդե՞ն ունեք գրանցում</string>
-    <string name="ԳՐԱՆՑՎԵԼ_signup.button">ԳՐԱՆՑՎԵԼ</string>
+    <string name="ԳՐԱՆՑՎԵԼ_signup">ԳՐԱՆՑՎԵԼ</string>
+    <string name="Մուտքագրեք_verification">Մուտքագրեք հաստատման կոդը</string>
+    <string name="Հաստատման_verification">Հաստատման կոդ</string>
+    <string name="Հաստատել_verification">Հաստատել</string>
+    <string name="Վերնագիր_verification">Վերնագիր</string>
 </resources>

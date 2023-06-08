@@ -1,6 +1,7 @@
 package com.example.cactus;
 
 public class DataClass {
+
     private String dataTitle;
     private String dataDesc;
     private String dataLang;
@@ -10,24 +11,31 @@ public class DataClass {
     public void setDataImage(String dataImage) {
         this.dataImage = dataImage;
     }
+
     public String getKey() {
         return key;
     }
+
     public void setKey(String key) {
         this.key = key;
     }
+
     public String getDataTitle() {
         return dataTitle;
     }
+
     public String getDataDesc() {
         return dataDesc;
     }
+
     public String getDataLang() {
         return dataLang;
     }
+
     public String getDataImage() {
         return dataImage;
     }
+
     public DataClass(String dataTitle, String dataDesc, String dataLang, String dataImage) {
         this.dataTitle = dataTitle;
         this.dataDesc = dataDesc;
@@ -35,5 +43,6 @@ public class DataClass {
         this.dataImage = dataImage;
     }
     public DataClass(){
+
     }
 }
