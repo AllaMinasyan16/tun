@@ -23,7 +23,7 @@ import java.util.List;
 public class Newsfragmenthome extends AppCompatActivity {
 
     FloatingActionButton fab;
-   RecyclerView recyclerView;
+    RecyclerView recyclerView;
     List<DataClass> dataList;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
@@ -34,7 +34,7 @@ public class Newsfragmenthome extends AppCompatActivity {
         setContentView(R.layout.activity_newsfragmenthome);
 
         fab=findViewById(R.id.fab);
-     recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(Newsfragmenthome.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -60,7 +60,6 @@ public class Newsfragmenthome extends AppCompatActivity {
                 dataList.clear();
                 for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     DataClass dataClass = itemSnapshot.getValue(DataClass.class);
-                    dataClass.setKey(itemSnapshot.getKey());
                     dataList.add(dataClass);
                 }
                 adapter.notifyDataSetChanged();

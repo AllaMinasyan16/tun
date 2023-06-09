@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Cactus"
         tools:targetApi="31">
         <activity
+            android:name=".Detail"
+            android:exported="false" />
+        <activity
+            android:name=".Chat"
+            android:exported="false" />
+        <activity
+            android:name=".ChatHomeFragment"
+            android:exported="false" />
+        <activity
             android:name=".Upload"
             android:exported="false" />
         <activity

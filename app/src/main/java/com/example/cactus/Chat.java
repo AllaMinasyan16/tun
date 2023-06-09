@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Advices extends AppCompatActivity {
+public class Chat extends AppCompatActivity {
     RecyclerView recyclerView;
     List<DataClass> dataList;
     DatabaseReference databaseReference;
@@ -28,7 +28,7 @@ public class Advices extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_advices);
+        setContentView(R.layout.activity_chat);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -43,10 +43,10 @@ public class Advices extends AppCompatActivity {
 
         dataList = new ArrayList<>();
 
-        MyAdapter adapter = new MyAdapter(this, dataList);
+       Adapter adapter = new Adapter(this, dataList);
         recyclerView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Advices");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
         dialog.show();
 
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
@@ -67,7 +67,5 @@ public class Advices extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
-
     }
 }

@@ -26,7 +26,7 @@ public class Home extends AppCompatActivity {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Home.this, Advices.class));
+                startActivity(new Intent(Home.this, Chat.class));
             }
         });
 

@@ -17,12 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class Adapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private Context context;
     private List<DataClass> dataList;
 
-    public MyAdapter(Context context, List<DataClass> dataList) {
+    public Adapter(Context context, List<DataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
@@ -44,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailActivity.class);
+                Intent intent = new Intent(context, Detail.class);
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getDataImage());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDataLang());
                 intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
@@ -65,13 +65,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 }
 
-class MyViewHolder extends RecyclerView.ViewHolder{
+class ViewHolder extends RecyclerView.ViewHolder{
 
     ImageView recImage;
     TextView recTitle, recDesc, recLang;
     CardView recCard;
 
-    public MyViewHolder(@NonNull View itemView) {
+    public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
         recImage = itemView.findViewById(R.id.recImage);
